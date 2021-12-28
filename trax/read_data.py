@@ -17,3 +17,9 @@ def import_zip(path):
             if fileName.endswith('.csv'):
                 # Extract a single file from zip
                 zip_f.extract(fileName, 'csv_files')
+
+def count_tracks(df):
+    index_df = df.index
+    number_of_tracks = len(index_df)
+    return number_of_tracks
+
