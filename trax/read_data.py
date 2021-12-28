@@ -1,5 +1,6 @@
 import zipfile as zf
 
+
 def import_zip(path):
     """
     Decompresses zip files
@@ -11,12 +12,13 @@ def import_zip(path):
     """
     with zf.ZipFile(path, 'r') as zip_f:
         top = {item.split('/')[0] for item in zip_f.namelist()}
-        # Iterate over the file names
+        # Iterem sobre els fitxers:
         for fileName in top:
-            # Check filename endswith csv
+            # Localitzem fitxers amb extensió csv
             if fileName.endswith('.csv'):
-                # Extract a single file from zip
+                # Descomprimim els fitxers:
                 zip_f.extract(fileName, 'csv_files')
+
 
 def count_tracks(df):
     """
@@ -27,6 +29,7 @@ def count_tracks(df):
     index_df = df.index
     number_of_tracks = len(index_df)
     return number_of_tracks
+
 
 def impute(dataframe, column):
     """

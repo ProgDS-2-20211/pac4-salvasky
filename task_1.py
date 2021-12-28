@@ -10,8 +10,7 @@ artists = pd.read_csv('csv_files/artists_norm.csv', sep=';', converters={"name":
 tracks = pd.read_csv('csv_files/tracks_norm.csv', sep=';')
 albums = pd.read_csv('csv_files/albums_norm.csv', sep=';')
 
-# Mostrem els criteris d'acceptació
-print("The dataset contains {} tracks".format(rd.count_tracks(tracks)))
+# Mostrem el nombre de valors buits en el dataset 'tracks' original:
 print("There were {} tracks in the set that had no popularity score".format(tracks['popularity'].isna().sum()))
 
 # Imputem els valors buits del dataset tracks:
@@ -27,3 +26,7 @@ all_merge.rename(columns = {'total_tracks':'album_total_tracks', 'name':'artist_
 
 # Exportem el nou fitxer desnormalitzat a csv:
 all_merge.to_csv(path_or_buf='data/tracks.csv', sep=';', index=False)
+
+# Mostrem el nombre de casos i columnes del dataset final:
+print("The final dataset contains {} tracks and has {} columns".format(rd.count_tracks(all_merge),
+                                                                       len(all_merge.columns)))
