@@ -15,13 +15,20 @@ empty = tracks['popularity'].isna().sum()
 print(f"The dataset contains {number_of_tracks} tracks")
 print(f"There were {empty} tracks in the set that have no popularity score")
 
-right_merge = pd.merge(tracks, albums, on='album_id', suffixes=("_track", "_album"))
-aa = right_merge
+full_merge = pd.merge(tracks, albums, on='album_id', suffixes=("_track", "_album"))
+af = full_merge
 
-index_m = aa.index
-merged_number = len(index_m)
+left_merge = pd.merge(tracks, albums, how='left', on=['album_id', 'artist_id'], suffixes=("_track", "_album"))
+al = left_merge
 
-print(merged_number)
+
+
+index_f = af.index
+index_l = al.index
+merged_f = len(index_f)
+merged_l = len(index_l)
+
+print(merged_f, merged_l)
 
 
 #print(aa_merge.to_string())
