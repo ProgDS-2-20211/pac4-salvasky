@@ -1,5 +1,18 @@
 # PAC/PEC 4
 
-This is the repository for activity 4 (PAC4/PEC4) of the course:
-* 22.403 - Programació per a la Ciència de Dades
-* 22.503 - Programación para la Ciencia de Datos
+L'estrctura bàsica del projecte està formada per un paquet, anomenat "trax",
+i un seguit de scripts, cadascun executant una de les tasques de l'enunciat.
+
+Descripció dels scripts:
+
+**Task 1:**
+
+Aquest script descomprimeix els datasets originals a partir del fitxer zip
+i els emmagatzema en la seva forma inicial en un nou fitxer "csv_files". Realitza
+les correccions necessàries i genera un dataframe desnormalitzat anomenat 
+"all_merge". L'script posteriorment exporta aquest dataframe a csv amb el nom 
+"tracks_csv", que emmagatzema en el mateix directori "data" que contenia el zip
+original. L'script mostra per pantalla els criteris d'acceptació.
+
+
+**Task 2**
