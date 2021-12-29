@@ -26,6 +26,13 @@ def popular_last(path, years, sep=';'):
     current_date = date.today()
     current_year = current_date.year
     year_span = df[df['release_year'].between(current_year-years, current_year)]
-    year_span['popularity_track'].idxmin()
-    max_pop = year_span.iloc[year_span['popularity_track'].idxmin()]
-    return max_pop
+    year_span['popularity_track'].idxmax()
+    max_pop = year_span.loc[year_span['popularity_track'].idxmax()]
+    return max_pop['name_track'], max_pop['artist_name']
+
+
+def decade_artists(path, decade, sep=';'):
+    df = pd.read_csv(path, sep=sep)
+    year = df[df['release_year'].between(decade, decade + 9)]
+    artists = set(year['artist_name'].to_list())
+    return artists
