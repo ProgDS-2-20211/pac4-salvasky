@@ -15,4 +15,7 @@ les correccions necessàries i genera un dataframe desnormalitzat anomenat
 original. L'script mostra per pantalla els criteris d'acceptació.
 
 
-**Task 2**
+**Task 2:**
+
+(Cal haver executat la 1a tasca per tal d'accedir als fitxers csv 
+descomprimits). 

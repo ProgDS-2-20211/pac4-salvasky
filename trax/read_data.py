@@ -1,4 +1,5 @@
 import zipfile as zf
+import pandas as pd
 
 
 def import_zip(path):
@@ -38,3 +39,15 @@ def impute(dataframe, column):
     :param column: column name to impute
     """
     dataframe[column] = dataframe[column].fillna(dataframe[column].mean())
+
+
+def get_column_pandas(path, column):
+    """
+    :param path:
+    :param column:
+    :rtype: list
+    """
+    col_df = pd.read_csv(path , sep=';', usecols=[column])
+    col_l = col_df[column].to_list()
+    return col_l
+
