@@ -1,8 +1,4 @@
 import zipfile as zf
-import pandas as pd
-import csv
-import time
-import matplotlib.pyplot as plt
 
 def import_zip(path):
     """

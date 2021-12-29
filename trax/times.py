@@ -6,8 +6,11 @@ import pandas as pd
 
 def get_column_pandas(path, column):
     """
-    :param path:
-    :param column:
+    Uses pandas library to
+    extract a single column from
+    a .csv file.
+    :param path: path to .csv file
+    :param column: column to extract
     :rtype: list
     """
     start_time = time.time()
@@ -17,7 +20,16 @@ def get_column_pandas(path, column):
     execution_time = stop_time - start_time
     return execution_time, len(col_l), col_l
 
+
+
 def get_column_csv(path, column):
+    """
+    Extracts a single column from
+    .csv file using csv read method.
+    :param path: path to .csv file
+    :param column: column to extract
+    :return: list
+    """
     start_time = time.time()
     with open(path, 'r') as file:
         list_c = list(i[column] for i in csv.DictReader(file, delimiter=';'))
@@ -28,6 +40,16 @@ def get_column_csv(path, column):
 
 
 def plot_times(list_pandas, list_csv):
+    """
+    Plots a comparison of
+    time efficiency between two different
+    functions
+    :param list_pandas: list of values
+    from pandas method
+    :param list_csv: list of values from
+    csv method
+    :return: execution times and plot
+    """
     xs = []
     ys_pandas, ys_csv = [], []
     for i in list_pandas:
