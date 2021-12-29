@@ -2,6 +2,7 @@ import zipfile as zf
 import pandas as pd
 import csv
 import time
+import matplotlib.pyplot as plt
 
 def import_zip(path):
     """
@@ -42,23 +43,5 @@ def impute(dataframe, column):
     dataframe[column] = dataframe[column].fillna(dataframe[column].mean())
 
 
-def get_column_pandas(path, column):
-    """
-    :param path:
-    :param column:
-    :rtype: list
-    """
-    start_time = time.time()
-    col_df = pd.read_csv(path , sep=';', usecols=[column])
-    col_l = col_df[column].to_list()
-    stop_time = time.time()
-    execution_time = stop_time - start_time
-    return execution_time, len(col_l), col_l
 
-def get_column_csv(path, column):
-    start_time = time.time()
-    with open(path, 'r') as file:
-        list_c = list(i[column] for i in csv.DictReader(file, delimiter=';'))
-    stop_time = time.time()
-    execution_time = stop_time - start_time
-    return execution_time, len(list_c), list_c
+

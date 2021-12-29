@@ -5,7 +5,7 @@ i un seguit de scripts, cadascun executant una de les tasques de l'enunciat.
 
 Descripció dels scripts:
 
-**Task 1:**
+**Task_1.py:**
 
 Aquest script descomprimeix els datasets originals a partir del fitxer zip
 i els emmagatzema en la seva forma inicial en un nou fitxer "csv_files". Realitza
@@ -15,7 +15,18 @@ les correccions necessàries i genera un dataframe desnormalitzat anomenat
 original. L'script mostra per pantalla els criteris d'acceptació.
 
 
-**Task 2:**
+**Task_2.py:**
 
 (Cal haver executat la 1a tasca per tal d'accedir als fitxers csv 
-descomprimits). 
+descomprimits).   
+Aquest script crida les funcions definides al mòdul 'times' del paquet 'trax'.
+Aquestes funcions retornen els temps d'execució al mateix temps que les
+columnes del fitxer csv en forma de llista. L'script en selecciona només els
+temps d'execució i la llargada de la llista per tal de fer el gràfic requerit.
+Malauradament, no he trobat una forma més ràpida de llegir el fitxer comparant 
+amb Pandas, i veiem en el gràfic que, per una mida petita, les dues funcions
+prenen temps similars, però per mides més grans el mètode pandas és més efectiu.    
+
+
+**Task_3**
+

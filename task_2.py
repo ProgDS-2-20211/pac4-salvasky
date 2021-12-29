@@ -1,37 +1,32 @@
-from trax import read_data as rd
-import matplotlib.pyplot as plt
+# Importem mòdul:
+from trax import times as t
 
-pandas_albums = rd.get_column_pandas('csv_files/albums_norm.csv', 'album_id')
-pandas_artists = rd.get_column_pandas('csv_files/artists_norm.csv', 'artist_id')
-pandas_tracks = rd.get_column_pandas('csv_files/tracks_norm.csv', 'track_id')
+# Creem dues llistes buides:
+pandas_list = []
+csv_list = []
 
-csv_albums = rd.get_column_csv('csv_files/albums_norm.csv', 'album_id')
-csv_artists = rd.get_column_csv('csv_files/artists_norm.csv', 'artist_id')
-csv_tracks = rd.get_column_csv('csv_files/tracks_norm.csv', 'track_id')
+# Utilitzem mòdul per extreure una columna de cada dataset amb pandas:
+pandas_albums = t.get_column_pandas('csv_files/albums_norm.csv', 'album_id')
+pandas_artists = t.get_column_pandas('csv_files/artists_norm.csv', 'artist_id')
+pandas_tracks = t.get_column_pandas('csv_files/tracks_norm.csv', 'track_id')
 
-print(pandas_albums[:2])
-print(csv_albums[:2])
-print(pandas_artists[:2])
-print(csv_artists[:2])
-print(pandas_tracks[:2])
-print(csv_tracks[:2])
+# Fem el mateix amb read.csv:
+csv_albums = t.get_column_csv('csv_files/albums_norm.csv', 'album_id')
+csv_artists = t.get_column_csv('csv_files/artists_norm.csv', 'artist_id')
+csv_tracks = t.get_column_csv('csv_files/tracks_norm.csv', 'track_id')
 
-xs = [2135, 68, 35574]
-ys_pandas, ys_csv = [], []
+# Afegim només els temps i mida de l'arxiu a les llistes:
+# (No mostrem les llistes per pantalla)
+pandas_list.append([pandas_artists[:2], pandas_albums[:2], pandas_tracks[:2]])
+csv_list.append([csv_artists[:2], csv_albums[:2], csv_tracks[:2]])
 
-ys_pandas.append(pandas_albums[0])
-ys_csv.append(csv_albums[0])
-ys_pandas.append(pandas_artists[0])
-ys_csv.append(csv_artists[0])
-ys_pandas.append(pandas_tracks[0])
-ys_csv.append(csv_tracks[0])
+# Mostrem els valors:
+print(pandas_list)
+print(csv_list)
 
-plt.figure()
-plt.plot(xs, ys_pandas, xs, ys_csv)
-plt.legend(["Set", "List"])
-plt.xlabel('$n$')
-plt.ylabel('$t(n)$')
-plt.title("Execution time of membership test")
-plt.show()
+# Mostrem el gràfic:
+t.plot_times(pandas_list, csv_list)
 
-#print(ys_pandas, ys_csv)
+
+
+
