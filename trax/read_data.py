@@ -1,6 +1,6 @@
 import zipfile as zf
 import pandas as pd
-
+import csv
 
 def import_zip(path):
     """
@@ -51,3 +51,10 @@ def get_column_pandas(path, column):
     col_l = col_df[column].to_list()
     return col_l
 
+def get_column_csv(path, column):
+    list = []
+    with open(path, 'r') as file:
+        column_r = csv.DictReader(file, delimiter=';')
+        for value in column_r:
+            list.append(value[column])
+    return list
