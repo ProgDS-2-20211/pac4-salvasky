@@ -1,7 +1,9 @@
 # PAC/PEC 4
 
 L'estructura bàsica del projecte està formada per un paquet, anomenat "trax",
-i un seguit de scripts, cadascun executant una de les tasques de l'enunciat.
+i un seguit de scripts, cadascun executant una de les tasques de l'enunciat. És necessari
+executar l'script task_1.py en primer lloc, ja que aquest script genera un fitxer sobre
+el qual treballen la majoria de scripts subsegüents.
 
 Descripció dels scripts:
 
@@ -16,9 +18,7 @@ original. L'script mostra per pantalla els criteris d'acceptació.
 
 
 **Task_2.py:**
-
-(Cal haver executat la 1a tasca per tal d'accedir als fitxers csv 
-descomprimits).   
+ 
 Aquest script crida les funcions definides al mòdul 'times' del paquet 'trax'.
 Aquestes funcions retornen els temps d'execució i també les
 columnes del fitxer csv en forma de llista. L'script en selecciona només els
