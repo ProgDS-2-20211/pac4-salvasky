@@ -1,13 +1,10 @@
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
 
 df = pd.read_csv('data/tracks.csv', sep=';')
-art = df[df['artist_name'] == 'Coldplay']
-dance = art.groupby('name_album', as_index=False)['danceability'].mean()
-print(dance)
-print(type(dance))
+art = df[df['artist_name'] == 'Ed Sheeran']
 
-dance.plot.barh(x='name_album', y= 'danceability', title= 'Coldplay: Danceability by album')
-
+sns.displot(art, x='acousticness', stat= 'probability').set(title='Ed')
 plt.show()

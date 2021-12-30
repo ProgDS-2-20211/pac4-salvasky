@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def basic_stats(path, feature, artist, sep=';'):
@@ -42,3 +43,22 @@ def stat_by_album(path, feature, artist, sep=';'):
     plt.show()
     print(dance)
     return dance
+
+
+def density_hist(path, feature, artist, sep=';', bins=15, kde=True):
+    """
+    Draws a density histogram from given
+    feature and given artist
+    :param path: path to dataset file
+    :param feature: feature to extract
+    :param artist: artist name
+    :param sep: default sepatator of csv file
+    :param bins: default number of bins
+    :param kde: default density line
+    :return: density histogram plot
+    """
+    df = pd.read_csv(path, sep=sep)
+    art = df[df['artist_name'] == artist]
+    sns.displot(art, x=feature, stat='density', kde=kde, bins=bins).set(title=artist+'\'s tracks')
+    plt.show()
+
