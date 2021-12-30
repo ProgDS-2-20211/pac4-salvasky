@@ -1,10 +1,13 @@
 import pandas as pd
-from datetime import date
-
-tracks = pd.read_csv('data/tracks.csv', sep=';')
-
-la = tracks[tracks['artist_name']=='Louis Armstrong']
-
-print(la)
+import matplotlib.pyplot as plt
 
 
+df = pd.read_csv('data/tracks.csv', sep=';')
+art = df[df['artist_name'] == 'Coldplay']
+dance = art.groupby('name_album', as_index=False)['danceability'].mean()
+print(dance)
+print(type(dance))
+
+dance.plot.barh(x='name_album', y= 'danceability', title= 'Coldplay: Danceability by album')
+
+plt.show()

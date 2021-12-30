@@ -1,6 +1,6 @@
 # PAC/PEC 4
 
-L'estrctura bàsica del projecte està formada per un paquet, anomenat "trax",
+L'estructura bàsica del projecte està formada per un paquet, anomenat "trax",
 i un seguit de scripts, cadascun executant una de les tasques de l'enunciat.
 
 Descripció dels scripts:
