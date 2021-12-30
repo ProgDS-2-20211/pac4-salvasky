@@ -30,3 +30,9 @@ prenen temps similars, però per mides més grans el mètode pandas és més efe
 
 **Task_3**
 
+Aquest script executa totes les preguntes plantejades utilitzant el mòdul
+subset del paquet trax, sempre partint del fitxer csv creat a la tasca 1.   
+
+**Task 4**
+
+
