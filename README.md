@@ -39,3 +39,7 @@ Aquest script executa les tasques plantejades utilitzant el mòdul stats del paq
 
 **Task_5.py**
 
+Aquest script utilitza el mòdul stats del paquet trax i retorna un gràfic.
+
+**Task_6.py**
+
