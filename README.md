@@ -20,7 +20,7 @@ original. L'script mostra per pantalla els criteris d'acceptació.
 (Cal haver executat la 1a tasca per tal d'accedir als fitxers csv 
 descomprimits).   
 Aquest script crida les funcions definides al mòdul 'times' del paquet 'trax'.
-Aquestes funcions retornen els temps d'execució al mateix temps que les
+Aquestes funcions retornen els temps d'execució i també les
 columnes del fitxer csv en forma de llista. L'script en selecciona només els
 temps d'execució i la llargada de la llista per tal de fer el gràfic requerit.
 Malauradament, no he trobat una forma més ràpida de llegir el fitxer comparant 
@@ -28,7 +28,7 @@ amb Pandas, i veiem en el gràfic que, per una mida petita, les dues funcions
 prenen temps similars, però per mides més grans el mètode pandas és més efectiu.    
 
 
-**Task_3**
+**Task_3.py**
 
 Aquest script executa totes les preguntes plantejades utilitzant el mòdul
 subset del paquet trax, sempre partint del fitxer csv creat a la tasca 1.   
@@ -39,7 +39,12 @@ Aquest script executa les tasques plantejades utilitzant el mòdul stats del paq
 
 **Task_5.py**
 
-Aquest script utilitza el mòdul stats del paquet trax i retorna un gràfic.
+Aquest script utilitza el mòdul stats del paquet trax i retorna un histograma de densitat.
 
 **Task_6.py**
+
+Aquest script utilitza exactament la mateixa funció que en la tasca 5. Hem adaptat la
+funció per tal que pugui acceptar el nom d'un sol artista o de dos artistes.
+
+**Task_7.py**
 

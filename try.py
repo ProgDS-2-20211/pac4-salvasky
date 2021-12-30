@@ -4,7 +4,6 @@ import seaborn as sns
 
 
 df = pd.read_csv('data/tracks.csv', sep=';')
-art = df[df['artist_name'] == 'Ed Sheeran']
-
-sns.displot(art, x='acousticness', stat= 'probability').set(title='Ed')
+ad = df[(df['artist_name'] == 'Adele') | (df['artist_name'] == 'Extremoduro')]
+sns.displot(ad, x='energy', hue='artist_name', stat= 'density', kde=True)
 plt.show()

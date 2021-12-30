@@ -45,20 +45,22 @@ def stat_by_album(path, feature, artist, sep=';'):
     return dance
 
 
-def density_hist(path, feature, artist, sep=';', bins=15, kde=True):
+
+def density_hist(path, feature, artist_1, artist_2='', sep=';', bins=15, kde=True):
     """
     Draws a density histogram from given
-    feature and given artist
+    feature and given artist.
+    Can also overlap histograms for 2 artists.
     :param path: path to dataset file
     :param feature: feature to extract
-    :param artist: artist name
-    :param sep: default sepatator of csv file
+    :param artist_1: artist name
+    :param artist_2: artist name 2 (default none)
+    :param sep: default separator of csv file
     :param bins: default number of bins
     :param kde: default density line
     :return: density histogram plot
     """
     df = pd.read_csv(path, sep=sep)
-    art = df[df['artist_name'] == artist]
-    sns.displot(art, x=feature, stat='density', kde=kde, bins=bins).set(title=artist+'\'s tracks')
+    art = df[(df['artist_name'] == artist_1) | (df['artist_name'] == artist_2)]
+    sns.displot(art, x=feature, stat='density', hue='artist_name', kde=kde, bins=bins, common_norm=False)
     plt.show()
-
