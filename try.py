@@ -4,6 +4,15 @@ import seaborn as sns
 
 
 df = pd.read_csv('data/tracks.csv', sep=';')
-ad = df[(df['artist_name'] == 'Adele') | (df['artist_name'] == 'Extremoduro')]
-sns.displot(ad, x='energy', hue='artist_name', stat= 'density', kde=True)
-plt.show()
+vec = df.groupby('artist_name', as_index=False)[['energy', 'key', 'loudness']].mean()
+#met_vec = vec.loc['Metallica', : ]
+#AC_vec = vec.loc['Ac/Dc', :]
+met_vec = vec[vec['artist_name'] == 'Metallica']
+AC_vec = vec[vec['artist_name'] == 'Ac/Dc']
+datas = [met_vec, AC_vec]
+
+frame = pd.concat(datas)
+artist_frame = frame.set_index('artist_name')
+
+print(artist_frame)
+
