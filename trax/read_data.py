@@ -1,4 +1,6 @@
 import zipfile as zf
+import pandas as pd
+
 
 def import_zip(path):
     """
@@ -37,6 +39,18 @@ def impute(dataframe, column):
     :param column: column name to impute
     """
     dataframe[column] = dataframe[column].fillna(dataframe[column].mean())
+
+
+def audio_f_list(path, artist):
+    df = pd.read_csv(path, sep=';')
+    audio = df.groupby('artist_name', as_index=False)[
+        ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
+         'acousticness', 'instrumentalness', 'liveness', 'valence',
+         'tempo', 'time_signature']].mean()
+    features = audio[audio['artist_name'] == artist].drop('artist_name', axis=1)
+    list = features.values.tolist()[0]
+
+    return list
 
 
 
