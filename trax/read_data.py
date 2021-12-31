@@ -55,10 +55,6 @@ def audio_f_list(path, artist):
          'acousticness', 'instrumentalness', 'liveness', 'valence',
          'tempo', 'time_signature']].mean()
     features = audio[audio['artist_name'] == artist].drop('artist_name', axis=1)
-    list = features.values.tolist()[0]
+    audio_list = features.values.tolist()[0]
 
-    return list
-
-
-
-
+    return audio_list

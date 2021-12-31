@@ -8,24 +8,23 @@ def get_column_pandas(path, column):
     """
     Uses pandas library to
     extract a single column from
-    a .csv file.
+    a .csv file
     :param path: path to .csv file
     :param column: column to extract
     :rtype: list
     """
     start_time = time.time()
-    col_df = pd.read_csv(path , sep=';', usecols=[column])
+    col_df = pd.read_csv(path, sep=';', usecols=[column])
     col_l = col_df[column].to_list()
     stop_time = time.time()
     execution_time = stop_time - start_time
     return execution_time, len(col_l), col_l
 
 
-
 def get_column_csv(path, column):
     """
     Extracts a single column from
-    .csv file using csv read method.
+    .csv file using csv read method
     :param path: path to .csv file
     :param column: column to extract
     :return: list
@@ -36,7 +35,6 @@ def get_column_csv(path, column):
     stop_time = time.time()
     execution_time = stop_time - start_time
     return execution_time, len(list_c), list_c
-
 
 
 def plot_times(list_pandas, list_csv):

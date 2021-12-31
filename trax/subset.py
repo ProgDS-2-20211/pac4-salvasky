@@ -34,7 +34,7 @@ def release_year(path, decade, sep=';'):
     """
     Finds tracks in specific decade.
     Defines decade as 10 years starting from
-    any given year.
+    any given year
     :param path: path to dataset file
     :param decade: single year that starts decade
     :param sep: separator in csv file
@@ -49,7 +49,7 @@ def release_year(path, decade, sep=';'):
 def popular_last(path, years, sep=';'):
     """
     Finds most popular artist in a span of past years,
-    starting from current date.
+    starting from current date
     :param path: path to dataset file
     :param years: amount of years to delimit search
     :param sep: separator in csv file
@@ -68,7 +68,7 @@ def decade_artists(path, decade, sep=';'):
     """
     Finds artists with tracks in specific decade.
     Defines decade as 10 years starting from
-    any given year.
+    any given year
     :param path: path to dataset file
     :param decade: single year that starts decade
     :param sep: separator in csv file

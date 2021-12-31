@@ -13,17 +13,17 @@ def basic_stats(path, feature, artist, sep=';'):
     :param sep: default separator of csv file
     :return: min, max and mean values
     """
-    global min, max, sum
+    global min_v, max_v, sum_v
     df = pd.read_csv(path, sep=sep)
     art = df[df['artist_name'] == artist]
     col = art[feature].to_list()
-    min = min(col)
-    max = max(col)
-    sum = sum(col)
+    min_v = min(col)
+    max_v = max(col)
+    sum_v = sum(col)
     length = len(col)
-    mean = sum / length
+    mean = sum_v / length
 
-    return min, max, mean
+    return min_v, max_v, mean
 
 
 def stat_by_album(path, feature, artist, sep=';'):
@@ -39,18 +39,17 @@ def stat_by_album(path, feature, artist, sep=';'):
     df = pd.read_csv(path, sep=sep)
     art = df[df['artist_name'] == artist]
     dance = art.groupby('name_album', as_index=False)[feature].mean()
-    dance.plot.barh(x='name_album', y=feature, title=artist+': Danceability by album')
+    dance.plot.barh(x='name_album', y=feature, title=artist + ': Danceability by album')
     plt.show()
     print(dance)
     return dance
-
 
 
 def density_hist(path, feature, artist_1, artist_2='', sep=';', bins=15, kde=True):
     """
     Draws a density histogram from given
     feature and given artist.
-    Can also overlap histograms for 2 artists.
+    Can also overlap histograms for 2 artists
     :param path: path to dataset file
     :param feature: feature to extract
     :param artist_1: artist name
