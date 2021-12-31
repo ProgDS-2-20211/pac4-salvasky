@@ -45,6 +45,19 @@ coords = [Metallica, AC_DC, Extremoduro, Hans_Zimmer]
 euclid = distance.cdist(coords, coords, 'euclidean')
 
 print(euclid)
+column_names = ['Metallica', 'AC/DC', 'Extremoduro', 'Hans Zimmer']
+euclid_distance = pd.DataFrame(euclid, columns=column_names, index=column_names)
+
+print(euclid_distance)
+
+
+mask = np.zeros_like(euclid_distance, dtype=np.bool)
+mask[np.triu_indices_from(mask)] = True
+sns.heatmap(euclid_distance, mask=mask, cmap='Blues')
+plt.title('Euclid distance')
+plt.show()
+
+
 """
 
 frame = pd.concat(datas)
