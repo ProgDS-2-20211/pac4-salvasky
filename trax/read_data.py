@@ -42,6 +42,13 @@ def impute(dataframe, column):
 
 
 def audio_f_list(path, artist):
+    """
+    Calculates mean values for all
+    audio features of one artist.
+    :param path: path to dataset
+    :param artist: name of artist
+    :return: list of values
+    """
     df = pd.read_csv(path, sep=';')
     audio = df.groupby('artist_name', as_index=False)[
         ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',

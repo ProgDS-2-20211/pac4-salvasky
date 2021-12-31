@@ -48,3 +48,10 @@ funció per tal que pugui acceptar el nom d'un sol artista o de dos artistes.
 
 **Task_7.py**
 
+Aquest script utiliza els mòduls read_data i distances del paquet trax. El procés que 
+realitza l'script consisteix a extraure els audio features de cada aritista i emmagatzemar-los
+com a llistes. Seguidament es calculen les distàncies euclidiana i cosinus, i s'emmagatzema
+el resultat com a array. Aquests arrays es tornen a reconvertir a dataframes per realitzar
+el heatmap que es demana en els criteris d'acceptació. Addicionalment, l'script mostra
+per pantalla els dataframes amb les matrius de similituds euclidiana i cosinus.
+
