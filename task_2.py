@@ -26,7 +26,3 @@ print(csv_list)
 
 # Mostrem el gràfic:
 t.plot_times(pandas_list, csv_list)
-
-
-
-

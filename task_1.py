@@ -21,8 +21,9 @@ left_merge = pd.merge(tracks, albums, how='left', on=['album_id', 'artist_id'], 
 
 # Hi afegim el dataset artists:
 all_merge = pd.merge(left_merge, artists, how='left', on='artist_id', suffixes=(" ", '_artist'))
-all_merge.rename(columns = {'total_tracks':'album_total_tracks', 'name':'artist_name', 'popularity':'artist_popularity',
-                            'followers':'artist_followers', 'total_albums':'artist_total_albums'}, inplace = True)
+all_merge.rename(
+    columns={'total_tracks': 'album_total_tracks', 'name': 'artist_name', 'popularity': 'artist_popularity',
+             'followers': 'artist_followers', 'total_albums': 'artist_total_albums'}, inplace=True)
 
 # Exportem el nou fitxer desnormalitzat a csv:
 all_merge.to_csv(path_or_buf='data/tracks.csv', sep=';', index=False)

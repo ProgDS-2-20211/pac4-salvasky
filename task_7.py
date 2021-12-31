@@ -30,7 +30,7 @@ print(euclid_distance)
 print(cosine_distance)
 
 # Elaborem els gràfics:
-fig, ax = plt.subplots(1,2)
+fig, ax = plt.subplots(1, 2)
 mask = np.zeros_like(euclid_distance, dtype=bool)
 mask[np.triu_indices_from(mask)] = True
 sns.heatmap(euclid_distance, mask=mask, cmap='Reds', ax=ax[0])

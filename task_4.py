@@ -11,4 +11,3 @@ print(f'Metallica\'s tracks have the following energy scores:'
 
 # Cridem la funció stat_by_album per generar el gràfic que se'ns demana:
 st.stat_by_album('data/tracks.csv', 'danceability', 'Coldplay')
-
