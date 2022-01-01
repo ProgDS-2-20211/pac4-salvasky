@@ -47,8 +47,8 @@ class TestDataSubset(unittest.TestCase):
 class TestDataStats(unittest.TestCase):
 
     def test_basic_stats(self):
-        self.assertEqual(st.basic_stats('../data/tracks.csv', 'energy', 'Metallica'), (0.0533, 0.998, 0.8462655384615388))
-
+        self.assertEqual(st.basic_stats('../data/tracks.csv', 'energy', 'Metallica'),
+                         (0.0533, 0.998, 0.8462655384615388))
 
 
 suite = unittest.TestSuite()
