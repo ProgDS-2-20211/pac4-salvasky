@@ -1,9 +1,10 @@
-# PAC/PEC 4
+# PAC 4
 
 L'estructura bàsica del projecte està formada per un paquet, anomenat "trax",
 i un seguit de scripts, cadascun executant una de les tasques de l'enunciat. És necessari
 executar l'script task_1.py en primer lloc, ja que aquest script genera un fitxer sobre
-el qual treballen la majoria de scripts subsegüents.    
+el qual treballen la majoria de scripts subsegüents. El projecte inclou també un script 'test'
+amb una suite de testos de diverses de les funcions utlitzades en el paquet trax.
 
 Descripció dels scripts:
 
