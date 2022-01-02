@@ -58,9 +58,9 @@ def plot_times(list_pandas, list_csv):
     Plots a comparison of
     time efficiency between two different
     functions
-    :param list_pandas: list of values
+    :param list_pandas: execution times
     from pandas method
-    :param list_csv: list of values from
+    :param list_csv: execution times from
     csv multiple processor method
     :return: execution times and plot
     """
