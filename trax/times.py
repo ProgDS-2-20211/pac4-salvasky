@@ -22,21 +22,6 @@ def get_column_pandas(path, column):
     return execution_time, len(col_l), col_l
 
 
-def get_column_csv(path, column):
-    """
-    Extracts a single column from
-    .csv file using csv read method
-    :param path: path to .csv file
-    :param column: column to extract
-    :return: list
-    """
-    start_time = time.time()
-    with open(path, 'r') as file:
-        list_c = list(i[column] for i in csv.DictReader(file, delimiter=';'))
-    stop_time = time.time()
-    execution_time = stop_time - start_time
-    return execution_time, len(list_c), list_c
-
 def col_list(file, column):
     """
     Extracts a single column from
@@ -49,6 +34,7 @@ def col_list(file, column):
         col_l = i[column]
     return col_l
 
+
 def get_column_future(path, column):
     """
     Extracts a single column from
@@ -59,14 +45,12 @@ def get_column_future(path, column):
     :return:
     """
     start_time = time.time()
-    with open(path, 'r') as file:
+    with open(path, 'r'):
         with cf.ProcessPoolExecutor(max_workers=4) as executor:
-            list_c = []
-            list_c.append(executor.submit(col_list, column=column))
+            list_c = [executor.submit(col_list, column=column)]
     stop_time = time.time()
     execution_time = stop_time - start_time
     return execution_time, len(list_c), list_c
-
 
 
 def plot_times(list_pandas, list_csv):
