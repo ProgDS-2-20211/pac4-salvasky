@@ -2,6 +2,7 @@ import time
 import csv
 import matplotlib.pyplot as plt
 import pandas as pd
+import concurrent.futures as cf
 
 
 def get_column_pandas(path, column):
@@ -36,6 +37,37 @@ def get_column_csv(path, column):
     execution_time = stop_time - start_time
     return execution_time, len(list_c), list_c
 
+def col_list(file, column):
+    """
+    Extracts a single column from
+    text file
+    :param file: file to read
+    :param column: column to extract
+    :return: list
+    """
+    for i in csv.DictReader(file, delimiter=';'):
+        col_l = i[column]
+    return col_l
+
+def get_column_future(path, column):
+    """
+    Extracts a single column from
+    .csv file using csv read method
+    while engaging multiple processors
+    :param path:
+    :param column:
+    :return:
+    """
+    start_time = time.time()
+    with open(path, 'r') as file:
+        with cf.ProcessPoolExecutor(max_workers=4) as executor:
+            list_c = []
+            list_c.append(executor.submit(col_list, column=column))
+    stop_time = time.time()
+    execution_time = stop_time - start_time
+    return execution_time, len(list_c), list_c
+
+
 
 def plot_times(list_pandas, list_csv):
     """
@@ -45,7 +77,7 @@ def plot_times(list_pandas, list_csv):
     :param list_pandas: list of values
     from pandas method
     :param list_csv: list of values from
-    csv method
+    csv multiple processor method
     :return: execution times and plot
     """
     xs = []
@@ -63,7 +95,7 @@ def plot_times(list_pandas, list_csv):
 
     plt.figure()
     plt.plot(xs, ys_pandas, xs, ys_csv, marker='o')
-    plt.legend(["pandas", "csv"])
+    plt.legend(["pandas", "csv multiple processes"])
     plt.xlabel('cases')
     plt.ylabel('time')
     plt.title('Execution time')

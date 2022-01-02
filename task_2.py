@@ -10,10 +10,10 @@ pandas_albums = t.get_column_pandas('csv_files/albums_norm.csv', 'album_id')
 pandas_artists = t.get_column_pandas('csv_files/artists_norm.csv', 'artist_id')
 pandas_tracks = t.get_column_pandas('csv_files/tracks_norm.csv', 'track_id')
 
-# Fem el mateix amb read.csv:
-csv_albums = t.get_column_csv('csv_files/albums_norm.csv', 'album_id')
-csv_artists = t.get_column_csv('csv_files/artists_norm.csv', 'artist_id')
-csv_tracks = t.get_column_csv('csv_files/tracks_norm.csv', 'track_id')
+# Fem el mateix amb read.csv utilitzant processos paral·lels:
+csv_albums = t.get_column_future('csv_files/albums_norm.csv', 'album_id')
+csv_artists = t.get_column_future('csv_files/artists_norm.csv', 'artist_id')
+csv_tracks = t.get_column_future('csv_files/tracks_norm.csv', 'track_id')
 
 # Afegim només els temps i mida de l'arxiu a les llistes:
 # (No mostrem les llistes per pantalla)

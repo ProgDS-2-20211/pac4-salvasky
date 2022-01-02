@@ -24,9 +24,9 @@ Aquest script crida les funcions definides al mòdul 'times' del paquet 'trax'.
 Aquestes funcions retornen els temps d'execució i també les
 columnes del fitxer csv en forma de llista. L'script en selecciona només els
 temps d'execució i la llargada de la llista per tal de fer el gràfic requerit.
-Malauradament, no he trobat una forma més ràpida de llegir el fitxer comparant 
-amb Pandas, i veiem en el gràfic que, per una mida petita, les dues funcions
-prenen temps similars, però per mides més grans el mètode pandas és més efectiu.    
+Veiem en el gràfic que, per una mida petita, les dues funcions
+prenen temps similars, però per mides més grans el mètode que utlitza
+ processos paral·lels és més efectiu.    
 
 
 **Task_3.py**
