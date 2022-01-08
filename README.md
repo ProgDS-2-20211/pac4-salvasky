@@ -1,4 +1,7 @@
-# PAC 4
+# PAC 4 
+###**_Salvador Sanchis Beneseit - ssanchisb@uoc.edu_**
+
+&nbsp;
 
 L'estructura bàsica del projecte està formada per un paquet, anomenat "trax",
 i un seguit de scripts, cadascun executant una de les tasques de l'enunciat. És necessari
