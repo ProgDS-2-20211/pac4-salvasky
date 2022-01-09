@@ -26,7 +26,7 @@ def api_r(artist):
                             'formed_year': "".join([a.get('intFormedYear')for a in art]),
                             'country': "".join([a.get('strCountry') for a in art])}, ignore_index=True)
         else:
-            raise Exception("Couldn't get weather data.")
+            raise Exception("Couldn't get data.")
 
     return r
 

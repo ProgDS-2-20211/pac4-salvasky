@@ -78,3 +78,8 @@ def decade_artists(path, decade, sep=';'):
     year = df[df['release_year'].between(decade, decade + 9)]
     artists = set(year['artist_name'].to_list())
     return artists
+
+def all_artists(path, sep=';'):
+    df = pd.read_csv(path, sep=sep)
+    artists = df['name'].to_list()
+    return artists
