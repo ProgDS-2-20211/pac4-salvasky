@@ -58,5 +58,11 @@ realitza l'script consisteix a extraure els audio features de cada aritista i em
 com a llistes. Seguidament es calculen les distàncies euclidiana i cosinus, i s'emmagatzema
 el resultat com a array. Aquests arrays es tornen a reconvertir a dataframes per realitzar
 el heatmap que es demana en els criteris d'acceptació. Addicionalment, l'script mostra
-per pantalla els dataframes amb les matrius de similituds euclidiana i cosinus.
+per pantalla els dataframes amb les matrius de similituds euclidiana i cosinus.  
+
+**Task_8.py**  
+
+Aquest script està en procés de construcció, de moment només retorna el primer criteri 
+d'acceptació. Quan intento descarregar la informació de la llista completa d'artistes
+es genera un error que de moment no he pogut solucionar.
 
