@@ -5,7 +5,7 @@ artist = ['radiohead', 'david bowie', 'maneskin']
 
 data_a = api.api_r(artist)
 print(data_a)
-
+print(type(data_a))
 # La resta de codi té com a objectiu ampliar el dataframe amb tots
 # els artistes del dataset artists_norm.csv
 # de moment aquest codi resulta en error, no he desxifrat el perquè:

@@ -3,6 +3,7 @@ import pandas as pd
 from trax import read_data as rd
 from trax import subset as ss
 from trax import stats as st
+from trax import api
 
 
 class TestDataRead(unittest.TestCase):
@@ -51,8 +52,16 @@ class TestDataStats(unittest.TestCase):
                          (0.0533, 0.998, 0.8462655384615388))
 
 
+class TestDataApi(unittest.TestCase):
+
+    def test_api_r(self):
+        self.assertEqual(print(type(api.api_r(['radiohead', 'david bowie', 'maneskin']))), print('pandas.core.frame'
+                                                                                                 '.DataFrame'))
+
+
 suite = unittest.TestSuite()
 suite.addTest(unittest.makeSuite(TestDataRead))
 suite.addTest(unittest.makeSuite(TestDataSubset))
 suite.addTest(unittest.makeSuite(TestDataStats))
+suite.addTest(unittest.makeSuite(TestDataApi))
 unittest.TextTestRunner(verbosity=2).run(suite)
